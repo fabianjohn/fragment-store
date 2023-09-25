@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4" >
+<head th:fragment="html_head">
+<meta charset="ISO-8859-1">
+<title>[[${pageTitle}]] - Eta-Ity Store</title>
+<link rel="icon" type="images/x-icon" href="https://www.w3docs.com/favicon.ico" />
+<link rel="stylesheet" type="text/css" th:href="@{/styles.css}" />
+</head>
+<body>
+<div th:fragment="header" class="header-container">
+
+      <div class="site-name">Link Express</div>
+          <div class="header-bar">
+               <th:block sec:authorize="isAuthenticated()">
+                  Hello
+                     <a th:href="@{/admin/accountInfo}" th:utext="${#request.userPrincipal.name}">..</a> 
+              &nbsp;|&nbsp;
+                <a th:href="@{/admin/logout}">Logout</a>
+               </th:block>
+      
+      <th:block >
+            <a th:href="@{/user/signUp}">Sign Up</a>
+        </th:block> 
+        
+              <th:block >
+            <a th:href="@{/admin/login}">Login</a>
+        </th:block> 
+   </div>
+  
+</div>
+
+</body>
+</html>
